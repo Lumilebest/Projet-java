@@ -28,6 +28,8 @@ public class Controller {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Images", "*.jpg", "*.jpeg", "*.png", "*.gif", "*.bmp")
         );
+
+
         File dossier = new File("src/main/resources/images");
         if ( dossier.exists()){
             fileChooser.setInitialDirectory(dossier);

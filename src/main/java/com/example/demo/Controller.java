@@ -1,52 +1,103 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelReader;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-
 public class Controller {
-    @FXML
-    private Image img;
-    @FXML
-    private ImageView imgv;
+
+    private Picture picture = new Picture();
     private Stage stage;
+
+    @FXML
+    private ImageView imageView;
 
     protected void setStage(Stage stage){
         this.stage = stage;
     }
 
     @FXML
-    protected void choosePhotoButton() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisis une image");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Images", "*.jpg", "*.jpeg", "*.png", "*.gif", "*.bmp")
-        );
+    protected void chooseImageButton() {
+        picture.setImageFC(this.stage);
 
-
-        File dossier = new File("src/main/resources/images");
-        if ( dossier.exists()){
-            fileChooser.setInitialDirectory(dossier);
+        if ( picture.getImage() != null ){
+            this.imageView.setImage(this.picture.getImage());
         }
 
-        File choix = fileChooser.showOpenDialog(this.stage);
+    }
+    @FXML
+    protected  void rotateRightImageButton(){
+        this.picture.transform(Picture.Transfo.ROTATER);
 
-
-        this.img = new Image(choix.toURI().toString());
-        this.imgv.setImage(img);
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
     }
 
-    protected  void rotatePhoto(){
-        PixelReader pr = this.img.getPixelReader();
-        int l = (int)this.img.getWidth();
-        int h = (int)this.img.getHeight();
+    @FXML
+    protected  void rotateLeftImageButton(){
+        this.picture.transform(Picture.Transfo.ROTATEL);
 
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
     }
+
+    @FXML
+    protected void axeXImageButton(){
+        this.picture.transform(Picture.Transfo.AXEX);
+
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
+    }
+
+    @FXML
+    protected void axeYImageButton(){
+        this.picture.transform(Picture.Transfo.AXEY);
+
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
+    }
+
+    @FXML
+    protected void echangeFiltreImage(){
+        this.picture.transform(Picture.Transfo.ECHANGE);
+
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
+    }
+
+    @FXML
+    protected void sepiaFiltreImage(){
+        this.picture.transform(Picture.Transfo.SEPIA);
+
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
+    }
+
+    @FXML
+    protected void BlackWhiteFiltreImage(){
+        this.picture.transform(Picture.Transfo.BLACKWHITE);
+
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
+    }
+
+    @FXML
+    protected void PrewittFiltreImage(){
+        this.picture.transform(Picture.Transfo.PREWITT);
+
+        if ( picture.getImage() != null){
+            this.imageView.setImage(this.picture.getImage());
+        }
+    }
+
+
+
 
 }

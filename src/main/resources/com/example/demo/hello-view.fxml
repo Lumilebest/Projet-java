@@ -4,15 +4,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.layout.HBox?>
+<VBox alignment="BOTTOM_CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.demo.Controller">
 
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <ImageView fx:id="imgv" fitWidth="300" preserveRatio="true"/>
-    <Button text="Choisi ta photo" onAction="#choosePhotoButton"/>
+    <StackPane VBox.vgrow="ALWAYS">
+    <ImageView fx:id="imageView" fitWidth="1000" fitHeight="1000" preserveRatio="true"/>
+    </StackPane>
+
+    <HBox alignment="BOTTOM_CENTER" spacing="10">
+        <Button text="Choisi ta photo" onAction="#chooseImageButton"/>
+        <Button text="Pivoter vers la droite" onAction="#rotateRightImageButton"/>
+        <Button text="Pivoter vers la gauche" onAction="#rotateLeftImageButton"/>
+        <Button text="Axe x" onAction="#axeXImageButton" />
+        <Button text="Axe Y" onAction="#axeYImageButton" />
+        <Button text="Echange" onAction="#echangeFiltreImage" />
+        <Button text="Noir et blanc" onAction="#BlackWhiteFiltreImage" />
+        <Button text="Sepia" onAction="#sepiaFiltreImage" />
+        <Button text="Prewitt" onAction="#PrewittFiltreImage" />
+    </HBox>
+
 
 </VBox>

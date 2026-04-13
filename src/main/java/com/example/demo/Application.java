@@ -13,7 +13,7 @@ public class Application extends javafx.application.Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("hello-view.fxml"));
 
         //lit et construit l'affichage a partir du fxml
-        Scene scene = new Scene(fxmlLoader.load(), 800, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 1200);
 
         //charge le controller et lui passe le stage en paramètre
         Controller c = fxmlLoader.getController();

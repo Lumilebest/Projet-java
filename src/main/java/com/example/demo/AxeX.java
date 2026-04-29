@@ -6,6 +6,6 @@ import javafx.scene.paint.Color;
 public class AxeX extends FiltreC {
     //déplace les pixels sur l'axe X
     protected Color transform(PixelReader reader, int x, int y, int width, int height){
-        return reader.getColor(width-x-1,y);
+        return reader.getColor(x,height-y-1);
     }
 }
